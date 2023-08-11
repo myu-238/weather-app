@@ -72,12 +72,12 @@ input::placeholder {
 }
 
 .main-weather-icon {
-    margin: -15px 0px 30px 61px;
+    margin: -10px 0px 30px 30px;
     width: 140px;
 }
 
 .current-temperature {
-    font-size: 60px;
+    font-size: 55px;
     font-weight: bold;
     font-family: Georgia, "Times New Roman", Times, serif;
     padding: 10px 0px 0px 0px;
