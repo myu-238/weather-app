@@ -1,21 +1,22 @@
 body {
     padding: 60px 30px 100px;
+    background-color: azure;
 }
 
 input::placeholder {
     font-family: "Catamaran", sans-serif;
-    font-size: 19px;
-    opacity: 0.4;
+    font-size: 17px;
+    opacity: 0.5;
 }
 
 .container {
     box-sizing: border-box;
     border: 5px solid #4db156;
     border-radius: 4px;
-    padding: 70px 60px;
+    padding: 40px 45px 25px 45px;
     max-width: 625px;
     background-image: url(/images/sky.jpg);
-    background-size: 220%;
+    background-size: 200%;
 }
 
 .city-name {
@@ -28,7 +29,7 @@ input::placeholder {
 .search-city-bar {
     border: 3px solid #006ec5;
     font-family: "Catamaran", sans-serif;
-    font-size: 20px;
+    font-size: 17px;
     color: #263eaa;
 }
 
@@ -47,17 +48,7 @@ input::placeholder {
     background-color: rgb(190, 211, 220);
 }
 
-.search-location-button {
-    border: 3px solid #006ec5;
-    border-radius: 2px;
-    font-size: 16px;
-    font-weight: bolder;
-    transition: all 200ms;
-    background-color: aliceblue;
-}
-
 .current-location-button:hover {
-    border: 3px solid #006ec5;
     border-radius: 2px;
     background-color: rgb(190, 211, 220);
     color: black;
@@ -148,5 +139,5 @@ input::placeholder {
     font-style: italic;
     font-size: small;
     font-weight: bold;
-    max-width: 680px;
+    padding: 10px 0px 0 0px;
 }
