@@ -1,14 +1,3 @@
-.container {
-    box-sizing: border-box;
-    border: 5px solid #4db156;
-    border-radius: 4px;
-    padding: 70px 60px;
-    max-width: 80%;
-    min-width: fit-content;
-    background-image: url(/images/sky.jpg);
-    background-size: 220%;
-}
-
 body {
     padding: 60px 30px 100px;
 }
@@ -17,6 +6,16 @@ input::placeholder {
     font-family: "Catamaran", sans-serif;
     font-size: 19px;
     opacity: 0.4;
+}
+
+.container {
+    box-sizing: border-box;
+    border: 5px solid #4db156;
+    border-radius: 4px;
+    padding: 70px 60px;
+    max-width: 625px;
+    background-image: url(/images/sky.jpg);
+    background-size: 220%;
 }
 
 .city-name {
@@ -149,4 +148,5 @@ input::placeholder {
     font-style: italic;
     font-size: small;
     font-weight: bold;
+    max-width: 680px;
 }

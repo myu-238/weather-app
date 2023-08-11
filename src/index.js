@@ -1,66 +1,66 @@
 // ------------------------------    UPDATE TIME     ------------------------------
 
 function formatDateAndTime() {
-        let now = new Date();
-        let days = [
-                "Sunday",
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday",
-        ];
-        let currentDay = days[now.getDay()];
-        let hours = now.getHours();
-        let minutes = now.getMinutes();
-        let time = `${hours}:${minutes}`;
+    let now = new Date();
+    let days = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+    ];
+    let currentDay = days[now.getDay()];
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
+    let time = `${hours}:${minutes}`;
 
-        let currentDateAndTime = document.querySelector("#current-time");
-        currentDateAndTime.innerHTML = `${currentDay}, ${time}`;
+    let currentDateAndTime = document.querySelector("#current-time");
+    currentDateAndTime.innerHTML = `${currentDay}, ${time}`;
 }
 formatDateAndTime();
 
 // -----------------------------    SEARCH ENGINE    ------------------------------
 // When user searches for a city and clicks on button, it displays the city name and temperature.
 function displayCityName(response) {
-        let searchCity = response.data.name;
-        let showCityName = document.getElementById("display-city-name");
-        showCityName.innerHTML = searchCity;
+    let searchCity = response.data.name;
+    let showCityName = document.getElementById("display-city-name");
+    showCityName.innerHTML = searchCity;
 }
 function displayCityTemp(response) {
-        let cityTemp = Math.round(response.data.main.temp);
-        let showTemp = document.getElementById("current-temperature");
-        showTemp.innerHTML = cityTemp;
+    let cityTemp = Math.round(response.data.main.temp);
+    let showTemp = document.getElementById("current-temperature");
+    showTemp.innerHTML = cityTemp;
 }
 
 let apiKey = "82b4b4516f612ad1803d4caf874dc244";
 
 document.getElementById("search-button").addEventListener("click", function () {
-        let inputCityName = document.getElementById("find-this-city").value;
-        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${inputCityName}&appid=${apiKey}&units=metric`;
-        axios.get(apiUrl)
-                .then(function (response) {
-                        console.log(response);
-                        displayCityTemp(response);
-                        displayCityName(response);
-                        document.getElementById("find-this-city").value = "";
-                })
-                .catch(function (error) {
-                        console.log(error);
-                });
+    let inputCityName = document.getElementById("find-this-city").value;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${inputCityName}&appid=${apiKey}&units=metric`;
+    axios
+        .get(apiUrl)
+        .then(function (response) {
+            console.log(response);
+            displayCityTemp(response);
+            displayCityName(response);
+            document.getElementById("find-this-city").value = "";
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
 });
 
-document.getElementById("find-this-city").addEventListener(
-        "keypress",
-        function (event) {
-                if (event.key === "Enter") {
-                        event.preventDefault();
-                        document.getElementById("search-button").click();
-                        document.getElementById("find-this-city").value = "";
-                }
+document
+    .getElementById("find-this-city")
+    .addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("search-button").click();
+            document.getElementById("find-this-city").value = "";
         }
-);
+    });
 
 /* ----------------- MATT'S SOLUTION TO SEARCH ENGINE
 // There's no precipitation, because the API only shows it when it rains. Matt removed the precipitation in HTML.
@@ -101,19 +101,19 @@ searchCity("New York");
 
 // BONUS FEATURE - SEARCH CURRENT LOCATION - which doesnt work by the way
 function showCurrentLocation(position) {
-        let lat = position.coords.latitude;
-        let lon = position.coords.longitude;
-        let apiKey = "82b4b4516f612ad1803d4caf874dc244";
-        let apiUrl = `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${apiKey}`;
-        axios.get(apiUrl).then(function (response) {
-                displayCityTemp(response);
-                displayCityName(response);
-        });
+    let lat = position.coords.latitude;
+    let lon = position.coords.longitude;
+    let apiKey = "82b4b4516f612ad1803d4caf874dc244";
+    let apiUrl = `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${apiKey}`;
+    axios.get(apiUrl).then(function (response) {
+        displayCityTemp(response);
+        displayCityName(response);
+    });
 }
 
 let currentLocationButton = document.getElementById("current-location-button");
 currentLocationButton.addEventListener("click", function () {
-        navigator.geolocation.getCurrentPosition(showCurrentLocation);
+    navigator.geolocation.getCurrentPosition(showCurrentLocation);
 });
 
 // ------------------------------------ SOLUTION FOR CURRENT LOCATION BUTTON by Matt --------------------------------
