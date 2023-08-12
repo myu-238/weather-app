@@ -58,49 +58,37 @@ function handleSubmit(event) {
     search(cityInput.value);
 }
 
+function displayFahrenheitTemperature(event) {
+    event.preventDefault();
+    let temperatureElement = document.querySelector("#current-temperature");
+
+    celsiusLink.classList.remove("active");
+    fahrenheitLink.classList.add("active");
+    let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+    temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function displayCelsiusTemperature(event) {
+    event.preventDefault();
+    let temperatureElement = document.querySelector("#current-temperature");
+
+    celsiusLink.classList.add("active");
+    fahrenheitLink.classList.remove("active");
+    temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
 let celsiusTemperature = null;
 
 let form = document.querySelector("#search-bar");
 form.addEventListener("submit", handleSubmit);
 
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
 search("New York");
-
-/* ----------------- MATT'S SOLUTION TO SEARCH ENGINE
-// There's no precipitation, because the API only shows it when it rains. Matt removed the precipitation in HTML.
-
-function displayWeatherCondition(response) {
-        console.log(response.data)
-        document.querySelector("#city").innerHTML = response.data.name;
-        document.querySelector("#temperature").innerHTML = Math.round(response.data.main.temp);
-        document.querySelector("#humidity").innnerHTML = response.data.main.humidity;
-        document.querySelector("#wind").innnerHTML = Math.round(response.data.main.wind.speed);
-        document.querySelector("#description").innnerHTML = response.data.main.weather[0].main;
-}
-
-function search(event) {
-        event.preventDefault();
-        let apiKey = "82b4b4516f612ad1803d4caf874dc244"
-        let city = document.querySelector("#city-input").value;
-        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-        axios.get(getUrl).then(displayWeatherCondition);
-}
-*/
-
-/* ---------------------------  RESEARCH ON LOAD - DISPLAY A CITY AS AN EXAMPLE ----------------------
-function searchCity(city) {
-        let apiKey = "82b4b4516f612ad1803d4caf874dc244";
-        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-        axios.get(apiUrl).then(displayWeatherCondition);
-}
-
-function handleSubmit(event) {
-        event.preventDefault();
-        let city = document.querySelector("city-input").value;
-        searchCity(city);
-}
-
-searchCity("New York");
-*/
 
 // BONUS FEATURE - SEARCH CURRENT LOCATION
 function showCurrentLocation(position) {

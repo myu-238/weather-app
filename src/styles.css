@@ -78,8 +78,9 @@ input::placeholder {
     padding: 10px 0px 0px 6px;
 }
 
-.link-units:hover {
-    cursor: pointer;
+.units .active {
+    color: rgb(33, 33, 33);
+    cursor: default;
 }
 
 .details-temperature {
