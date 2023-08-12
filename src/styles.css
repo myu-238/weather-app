@@ -26,7 +26,7 @@ input::placeholder {
     font-family: sans-serif;
 }
 
-.search-city-bar {
+.city-input {
     border: 3px solid #006ec5;
     font-family: "Catamaran", sans-serif;
     font-size: 17px;
@@ -61,7 +61,7 @@ input::placeholder {
     font-size: 18px;
 }
 
-.main-weather-icon {
+.main-icon {
     margin: -10px 0px 30px 30px;
     width: 140px;
 }

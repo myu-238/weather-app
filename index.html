@@ -38,9 +38,9 @@
                     <div class="row mb-3 g-0 lh-1 mx-auto" style="width: 610px">
                         <input
                             type="search"
-                            class="col-6 search-city-bar px-2 py-1"
+                            class="col-6 city-input px-2 py-1"
                             placeholder="Enter a city name"
-                            id="find-this-city"
+                            id="city-input"
                         />
                         <button
                             type="button"
@@ -62,23 +62,17 @@
 
                 <div class="main-info mb-3">
                     <div class="row g-0 justify-content-center">
-                        <div
-                            class="col-6 city-name lh-lg"
-                            id="display-city-name"
-                        >
+                        <div class="col-6 city-name lh-lg" id="city-name">
                             Vancouver
                         </div>
                         <div class="col-4 date-time lh-sm">
-                            <span id="current-time">Sunday, 4:00 p.m.</span>
-                            <br />Sunny
+                            <span id="date-time">Sunday, 4:00 p.m.</span>
+                            <br id="description" />Sunny
                         </div>
                     </div>
 
                     <div class="row">
-                        <img
-                            class="main-weather-icon"
-                            src="images/Sunny3.png"
-                        />
+                        <img class="main-icon" src="images/Sunny3.png" />
 
                         <span
                             class="col-2 current-temperature lh-sm"
@@ -101,11 +95,10 @@
                                 >℉</a
                             >
                         </span>
-                        <span class="col-3 details-temperature lh-sm">
-                            Precipitation: 78% <br />
-                            Humidity: 93% <br />
-                            Wind: 8 km/h
-                        </span>
+                        <div class="col-3 details-temperature lh-sm">
+                            <span id="humidity"> Humidity: 93% </span><br />
+                            <span id="wind"> Wind: 8 km/h </span>
+                        </div>
                     </div>
                 </div>
 

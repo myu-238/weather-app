@@ -1,7 +1,5 @@
-// ------------------------------    UPDATE TIME     ------------------------------
-
-function formatDateAndTime() {
-    let now = new Date();
+function formatDateAndTime(timestamp) {
+    let now = new Date(timestamp);
     let days = [
         "Sunday",
         "Monday",
@@ -19,48 +17,50 @@ function formatDateAndTime() {
     let currentDateAndTime = document.querySelector("#current-time");
     currentDateAndTime.innerHTML = `${currentDay}, ${time}`;
 }
-formatDateAndTime();
 
-// -----------------------------    SEARCH ENGINE    ------------------------------
-// When user searches for a city and clicks on button, it displays the city name and temperature.
-function displayCityName(response) {
-    let searchCity = response.data.name;
-    let showCityName = document.getElementById("display-city-name");
-    showCityName.innerHTML = searchCity;
+function displayWeather(response) {
+    console.log(response.data);
+    let temperatureElement = document.querySelector("#current-temperature");
+    let cityElement = document.querySelector("#city-name");
+    let descriptionElement = document.querySelector("#description");
+    let humidityElement = document.querySelector("#humidity");
+    let windElement = document.querySelector("#wind");
+    let dateElement = document.querySelector("#date-time");
+    let iconElement = document.querySelector("#main-icon");
+
+    celsiusTemperature = response.data.temperature.current;
+
+    temperatureElement.innerHTML = Math.round(celsiusTemperature);
+    cityElement.innerHTML = response.data.city;
+    descriptionElement.innerHTML = response.data.condition.description;
+    humidityElement.innerHTML = response.data.temperature.humidity;
+    windElement.innerHTML = Math.round(response.data.wind.speed);
+    dateElement.innerHTML = formatDateAndTime(response.data.time * 1000);
+    iconElement.setAttribute(
+        "src",
+        `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+    );
+    iconElement.setAttribute("alt", response.data.condition.description);
 }
-function displayCityTemp(response) {
-    let cityTemp = Math.round(response.data.main.temp);
-    let showTemp = document.getElementById("current-temperature");
-    showTemp.innerHTML = cityTemp;
+
+function search(city) {
+    let apiKey = "28842fobf1a190b0t62a268683055905";
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(displayWeather);
 }
 
-let apiKey = "82b4b4516f612ad1803d4caf874dc244";
+function handleSubmit(event) {
+    event.preventDefault();
+    let cityInput = document.querySelector("#city-input");
+    search(cityInput.value);
+}
 
-document.getElementById("search-button").addEventListener("click", function () {
-    let inputCityName = document.getElementById("find-this-city").value;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${inputCityName}&appid=${apiKey}&units=metric`;
-    axios
-        .get(apiUrl)
-        .then(function (response) {
-            console.log(response);
-            displayCityTemp(response);
-            displayCityName(response);
-            document.getElementById("find-this-city").value = "";
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-});
+let celsiusTemperature = null;
 
-document
-    .getElementById("find-this-city")
-    .addEventListener("keypress", function (event) {
-        if (event.key === "Enter") {
-            event.preventDefault();
-            document.getElementById("search-button").click();
-            document.getElementById("find-this-city").value = "";
-        }
-    });
+let form = document.querySelector("#search-bar");
+form.addEventListener("submit", handleSubmit);
+
+search("New York");
 
 /* ----------------- MATT'S SOLUTION TO SEARCH ENGINE
 // There's no precipitation, because the API only shows it when it rains. Matt removed the precipitation in HTML.
@@ -99,7 +99,7 @@ function handleSubmit(event) {
 searchCity("New York");
 */
 
-// BONUS FEATURE - SEARCH CURRENT LOCATION - which doesnt work by the way
+// BONUS FEATURE - SEARCH CURRENT LOCATION
 function showCurrentLocation(position) {
     let lat = position.coords.latitude;
     let lon = position.coords.longitude;
