@@ -39,12 +39,11 @@ function displayWeather(response) {
     humidityElement.innerHTML = response.data.temperature.humidity;
     windElement.innerHTML = Math.round(response.data.wind.speed);
     dateElement.innerHTML = formatDateAndTime(response.data.time * 1000);
-    /*iconElement.setAttribute(
+    iconElement.setAttribute(
         "src",
         `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
     );
     iconElement.setAttribute("alt", response.data.condition.description);
-    */
 }
 
 function search(city) {
