@@ -61,6 +61,14 @@ input::placeholder {
     font-size: 18px;
 }
 
+.description {
+    display: block;
+}
+
+.description:first-letter {
+    text-transform: capitalize;
+}
+
 .main-icon {
     margin: -10px 0px 30px 30px;
     width: 140px;
