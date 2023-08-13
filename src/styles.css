@@ -63,6 +63,8 @@ input::placeholder {
 
 .description {
     display: block;
+    font-weight: lighter;
+    font-size: smaller;
 }
 
 .description:first-letter {
@@ -70,12 +72,13 @@ input::placeholder {
 }
 
 .main-icon {
-    margin: -10px 0px 30px 30px;
-    width: 140px;
+    margin: 0px 0px 0px 38px;
+    width: 100px;
+    padding: 0%;
 }
 
 .current-temperature {
-    font-size: 55px;
+    font-size: 52px;
     font-weight: bold;
     font-family: Georgia, "Times New Roman", Times, serif;
     padding: 10px 0px 0px 0px;

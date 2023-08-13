@@ -77,6 +77,13 @@ function displayCelsiusTemperature(event) {
     temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
+/*function getCurrentLocation(event) {
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(function (position) {
+        do_something(coordinates.latitude, coordinates.longitude);
+    });
+} */
+
 let celsiusTemperature = null;
 
 let form = document.querySelector("#search-bar");
@@ -88,57 +95,7 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
-search("New York");
+/* let currentLocationButton = document.qeurySelector("#current-location-button");
+currentLocationButton.addEventListener("click", getCurrentLocation); */
 
-// BONUS FEATURE - SEARCH CURRENT LOCATION
-function showCurrentLocation(position) {
-    let lat = position.coords.latitude;
-    let lon = position.coords.longitude;
-    let apiKey = "82b4b4516f612ad1803d4caf874dc244";
-    let apiUrl = `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${apiKey}`;
-    axios.get(apiUrl).then(function (response) {
-        displayCityTemp(response);
-        displayCityName(response);
-    });
-}
-
-let currentLocationButton = document.getElementById("current-location-button");
-currentLocationButton.addEventListener("click", function () {
-    navigator.geolocation.getCurrentPosition(showCurrentLocation);
-});
-
-// ------------------------------------ SOLUTION FOR CURRENT LOCATION BUTTON by Matt --------------------------------
-/*
-function searchLocation()
-
-function getCurrentLocation(event) {
-        event.preventDefault();
-        navigator.geolocation.getCurrentPosition(function(position) {
-                do_something(position.coords.latitude, position.coords.longitude);
-        });
-}
-
-let currentLocationButton = document.qeurySelector("#current-location-button");
-currentLocationButton.addEventListener("click", getCurrentLocation);
-*/
-
-// ----------------    CONVERSION TO CELSIUS FAHRENHEIT  ------------------
-/*
-function convertTempToCelsius(event) {
-        event.preventDefault;
-        let changeToCelsius = document.getElementById("current-temperature");
-        changeToCelsius.innerHTML = 12;
-}
-
-let CelsiusLink = document.getElementById("linkCelsius");
-CelsiusLink.addEventListener("click", convertTempToCelsius);
-
-function convertTempToFahrenheit(event) {
-        event.preventDefault;
-        let changeToFahrenheit = document.getElementById("current-temperature");
-        changeToFahrenheit.innerHTML = 53;
-}
-
-let FahrenheitLink = document.getElementById("linkFahrenheit");
-FahrenheitLink.addEventListener("click", convertTempToFahrenheit);
-*/
+search("Lisbon");
