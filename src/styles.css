@@ -48,12 +48,6 @@ input::placeholder {
     background-color: rgb(190, 211, 220);
 }
 
-.current-location-button:hover {
-    border-radius: 2px;
-    background-color: rgb(190, 211, 220);
-    color: black;
-}
-
 .date-time {
     padding-top: 34px;
     text-align: end;
