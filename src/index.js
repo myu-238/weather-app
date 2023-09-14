@@ -24,6 +24,7 @@ function formatDateAndTime(timestamp) {
 function formatDay(timestamp) {
     let date = new Date(timestamp * 1000);
     let day = date.getDay();
+    console.log(day);
     let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
     return days[day];
@@ -78,7 +79,6 @@ function displayForecast(response) {
 function getForecast(coordinates) {
     let apiKey = "28842fobf1a190b0t62a268683055905";
     let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
-    console.log(apiUrl);
     axios.get(apiUrl).then(displayForecast);
 }
 
