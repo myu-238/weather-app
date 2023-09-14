@@ -95,48 +95,9 @@ input::placeholder {
     font-family: sans-serif;
 }
 
-.weather-days-icon {
-    width: 50px;
-    height: 50px;
-}
-
-.card {
-    height: 4cm;
-}
-
-.card-border {
-    border: thick solid #006ec5;
-}
-
-.left-card {
-    border-left-width: 9px;
-}
-
-.right-card {
-    border-right-width: 9px;
-}
-
-.card-body {
-    width: fit-content;
-    display: block;
-    margin: 0 auto;
-    padding: 10px 13px;
-}
-
 .main-info {
     background-color: rgb(255, 255, 255, 0.7);
     border-radius: 5px;
-}
-
-.tuesday-icon {
-    width: 45px;
-    height: 50px;
-    padding-top: 4px;
-}
-
-.friday-icon {
-    width: 55px;
-    height: 43px;
 }
 
 .author {
@@ -146,4 +107,23 @@ input::placeholder {
     font-size: small;
     font-weight: bold;
     padding: 10px 0px 0 0px;
+}
+
+.weather-forecast {
+    margin-top: 20px;
+    text-align: center;
+    color: #000;
+}
+
+.weather-forecast-date {
+    font-size: 16px;
+    opacity: 0.5;
+}
+
+.weather-forecast-temperature-min {
+    opacity: 0.5;
+}
+
+.weather-forecast-temperatures {
+    font-size: 13px;
 }
