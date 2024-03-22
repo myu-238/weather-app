@@ -36,54 +36,60 @@
         <div class="container px-7">
             <div class="weather-app mb-5">
                 <h1 class="text-center mb-5">Weather Forecast</h1>
-                <form id="search-bar">
-                    <div class="row mb-3 g-0 lh-1 mx-auto" style="width: 610px">
-                        <input
-                            type="search"
-                            class="col-6 city-input px-2 py-1"
-                            placeholder="Enter a city name"
-                            id="city-input"
-                        />
-                        <button
-                            type="submit"
-                            class="col-2 search-button btn"
-                            id="search-button"
+                <div>
+                    <form id="search-bar">
+                        <div
+                            class="row mb-3 g-0 lh-1 mx-auto"
+                            style="width: 610px"
                         >
-                            Search
-                        </button>
-                    </div>
-                </form>
-
+                            <input
+                                type="search"
+                                class="col-6 city-input px-2 py-1"
+                                placeholder="Enter a city name"
+                                id="city-input"
+                            />
+                            <button
+                                type="submit"
+                                class="col-2 search-button btn"
+                                id="search-button"
+                            >
+                                Search
+                            </button>
+                        </div>
+                    </form>
+                </div>
                 <div class="main-info mb-3">
-                    <div class="row g-0 justify-content-center">
-                        <div class="col-6 city-name lh-sm" id="city-name">
-                            Vancouver
-                        </div>
-                        <div class="col-4 date-time lh-1">
-                            <span id="date-time">Sunday, 4:00 p.m.</span>
-                            <span id="description" class="description"
-                                >Sunny
-                            </span>
-                        </div>
-                    </div>
-
                     <div class="row">
-                        <img
-                            class="main-icon"
-                            id="main-icon"
-                            src="images/Sunny3.png"
-                        />
-
-                        <span
-                            class="col-2 current-temperature lh-sm"
-                            id="current-temperature"
-                        >
-                            12
-                        </span>
-                        <span class="units col-2"> ℃</span>
-                        <div class="col-3 details-temperature lh-sm">
-                            Humidity: <span id="humidity">93</span>% <br />
-                            Wind: <span id="wind">8 </span> km/h
+                        <div class="first-info col-6 text-center">
+                            <span class="city-name" id="city-name"
+                                >Vancouver</span
+                            >
+                            <br />
+                            <img
+                                class="main-icon"
+                                id="main-icon"
+                                src="images/Sunny3.png"
+                            />
+                            <span
+                                class="col-2 current-temperature lh-sm"
+                                id="current-temperature"
+                            >
+                                12
+                            </span>
+                            <span class="units col-2"> ℃</span>
+                        </div>
+                        <div class="second-info col-6 text-end">
+                            <span class="date-time" id="date-time"
+                                >Date, Time</span
+                            >
+                            <br />
+                            <span class="description" id="description"
+                                >Sunny</span
+                            >
+                            <br />
+                            <span class="details-temperature">Humidity:</span>
+                            <span id="humidity">93</span>% <br />
+                            <span>Wind: </span> <span id="wind">8 </span> km/h
                         </div>
                     </div>
                 </div>
