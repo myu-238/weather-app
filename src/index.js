@@ -41,7 +41,7 @@ function displayForecast(response) {
             forecastHTML =
                 forecastHTML +
                 `
-                            <div class="col-2">
+                            <div class="col-2 py-4 px-0">
                                 <div class="weather-forecast-date">${formatDay(
                                     forecastDay.time
                                 )}</div>
@@ -49,8 +49,7 @@ function displayForecast(response) {
                                     src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
                                         forecastDay.condition.icon
                                     }.png"
-                                    alt=""
-                                    width="42"
+                                    width="70"
                                 />
                                 <div class="weather-forecast-temperatures">
                                     <span
