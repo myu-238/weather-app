@@ -22,6 +22,7 @@ h1 {
     max-width: 850px;
     background-image: url(/images/sky.jpg);
     background-size: 200%;
+    box-shadow: 10px 3px 20px 4px rgba(0, 0, 0, 0.2);
 }
 
 .city-name {
@@ -56,12 +57,11 @@ h1 {
     padding-top: 34px;
     text-align: end;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .description {
     display: block;
-    font-weight: lighter;
     font-size: normal;
 }
 
@@ -90,8 +90,6 @@ h1 {
 .details-temperature {
     text-align: end;
     padding: 15px 0px 15px 0px;
-    font-size: 18px;
-    font-family: sans-serif;
 }
 
 .main-info {
@@ -104,7 +102,8 @@ h1 {
 }
 
 .second-info {
-    padding: 40px 200px 25px 0px;
+    padding: 40px 188px 25px 0px;
+    font-size: 18px;
 }
 
 .author {
